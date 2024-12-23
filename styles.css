@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-light: #ecf0f1;
+    --text-dark: #2c3e50;
+    --background-dark: #34495e;
+    --card-background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-dark);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.brand {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.brand span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* Search Container - Original Style */
+.search-container {
+    background-color: var(--primary-color);
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-element {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.search-element h3 {
+    align-self: center;
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.search-element .form-control {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    outline: none;
+    color: var(--text-dark);
+    width: 350px;
+}
+
+.search-list {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    z-index: 10;
+}
+
+.search-list .search-list-item {
+    background-color: var(--light-dark-color);
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--dark-color);
+    width: calc(350px - 8px);
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-list .search-list-item:hover {
+    background-color: #1f1f1f;
+}
+
+.search-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    outline: none;
+    border-radius: 10px;
+}
+
+/* Movie Results */
+.result-container {
+    padding: 3rem 0;
+}
+
+.movie-poster img {
+    max-width: 300px;
+    margin: 0 auto;
+    border: 4px solid #fff;
+}
+
+.movie-info {
+    text-align: center;
+    color: #fff;
+    padding-top: 3rem;
+}
+
+.movie-title {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.movie-misc-info {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.movie-info .year {
+    font-weight: 500;
+}
+
+.movie-info .rated {
+    background-color: var(--accent-color);
+    padding: 0.4rem;
+    margin: 0 0.4rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.movie-info .released {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.movie-info .writer {
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+
+.movie-info .genre {
+    background-color: var(--primary-color);
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+
+.movie-info .plot {
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+.movie-info .language {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.movie-info .awards {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.movie-info .awards i {
+    color: var(--accent-color);
+    margin: 1rem 0.7rem 0 0;
+}
+
+/* Collections Page */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.collections-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collections-container h2 {
+    color: var(--text-light);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.collection-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+.collection-card img {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+}
+
+.collection-card-info {
+    padding: 1rem;
+}
+
+.collection-card-info h3 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.collection-card-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.remove-btn {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.hide-search-list {
+    display: none;
+}
+
+/* Add to Collection button */
+.collection-btn {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.collection-btn:hover {
+    background-color: #c0392b;
+}
+
+@media(max-width: 768px) {
+    .search-element .form-control {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .search-element h3 {
+        font-size: 1.4rem;
+    }
+    
+    .search-list {
+        width: 90%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .movie-misc-info {
+        flex-direction: column;
+    }
+    
+    .movie-misc-info li:nth-child(2) {
+        margin: 0.8rem 0;
+    }
+}

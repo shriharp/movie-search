@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotIMDb</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="brand">Not<span>IMDb.</span></div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="collections">My Collections</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home-page" class="page active">
+        <!-- Search Container -->
+        <div class="search-container">
+            <div class="search-element">
+                <h3>Search Movie:</h3>
+                <input type="text" class="form-control" placeholder="Search Movie Title ..." id="movie-search-box" onkeyup="findMovies()" onclick="findMovies()">
+                <div class="search-list" id="search-list">
+                    <!-- list here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Container -->
+        <div class="container">
+            <div class="result-container">
+                <div class="result-grid" id="result-grid">
+                    <!-- movie information here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="collections-page" class="page">
+        <div class="collections-container">
+            <h2>My Movie Collection</h2>
+            <div id="collections-grid" class="collections-grid"></div>
+        </div>
+    </div>
+
+    <div id="about-page" class="page">
+        <div class="about-container">
+            <h2>About CineVault</h2>
+            <p>Your personal movie collection and search platform.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
