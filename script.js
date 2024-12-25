@@ -159,7 +159,7 @@ async function loadCollections() {
     collectionsGrid.innerHTML = '<div class="loading" style="color: white; text-align: center; grid-column: 1/-1;">Loading your collection...</div>';
     
     const movieCards = await Promise.all(collections.map(async (movieId) => {
-        const result = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=f6df7e70`);
+        const result = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=fc1fef96`);
         const movie = await result.json();
         return createCollectionCard(movie);
     }));
