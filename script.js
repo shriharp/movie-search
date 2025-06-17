@@ -4,8 +4,8 @@ const resultGrid = document.getElementById('result-grid');
 
 // Load movies from API
 async function loadMovies(searchTerm) {
-    const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=f6df7e70`;
-    const res = await fetch(`${URL}`);
+    const URL = `/api/search?s=${encodeURIComponent(searchTerm)}&page=1`;
+    const res = await fetch(URL);
     const data = await res.json();
     if(data.Response == "True") displayMovieList(data.Search);
 }
@@ -48,7 +48,7 @@ function loadMovieDetails() {
         movie.addEventListener('click', async () => {
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
-            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=f6df7e70`);
+            const result = await fetch(`/api/search?i=${movie.dataset.id}`);
             const movieDetails = await result.json();
             displayMovieDetails(movieDetails);
         });
@@ -159,7 +159,7 @@ async function loadCollections() {
     collectionsGrid.innerHTML = '<div class="loading" style="color: white; text-align: center; grid-column: 1/-1;">Loading your collection...</div>';
     
     const movieCards = await Promise.all(collections.map(async (movieId) => {
-        const result = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=fc1fef96`);
+        const result = await fetch(`/api/search?i=${movieId}`);
         const movie = await result.json();
         return createCollectionCard(movie);
     }));
