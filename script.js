@@ -115,7 +115,11 @@ function addToCollection(movieId) {
 }
 
 // Event listener for search input
-movieSearchBox.addEventListener('input', findMovies);
+let debounceTimeout;
+movieSearchBox.addEventListener('input', () => {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(findMovies, 300);
+});
 
 // Event listener for clicking outside search results
 window.addEventListener('click', (event) => {
